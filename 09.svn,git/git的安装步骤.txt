@@ -1,0 +1,6 @@
+git客户端安装完成之后,打开git bash命令窗口
+#执行如下的命令
+因为Git是分布式版本控制系统，所以需要填写用户名和邮箱作为一个标识
+这里我填写的是阿里云云上代码平台的git用户和邮箱
+git config --global user.name "gcc"
+git config --global user.email "707528735@qq.com"
