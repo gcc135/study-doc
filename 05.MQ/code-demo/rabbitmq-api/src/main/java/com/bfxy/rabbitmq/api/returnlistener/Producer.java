@@ -48,7 +48,7 @@ public class Producer {
 		
 		channel.basicPublish(exchange, routingKeyError, true, null, msg.getBytes());
 		
-		//channel.basicPublish(exchange, routingKeyError, true, null, msg.getBytes());
+		//channel.basicPublish(exchange, routingKeyError, false, null, msg.getBytes());
 		
 		
 		
