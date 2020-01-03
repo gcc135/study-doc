@@ -28,17 +28,24 @@ import com.bfxy.spring.convert.TextMessageConverter;
 @Configuration
 @ComponentScan({"com.bfxy.spring.*"})
 public class RabbitMQConfig {
-
+	
+	/**
+	 * 	初始化连接工厂
+	 * @return
+	 */
 	@Bean
 	public ConnectionFactory connectionFactory(){
 		CachingConnectionFactory connectionFactory = new CachingConnectionFactory();
-		connectionFactory.setAddresses("192.168.11.76:5672");
-		connectionFactory.setUsername("guest");
-		connectionFactory.setPassword("guest");
+		connectionFactory.setAddresses("192.168.241.130:5672");
+		connectionFactory.setUsername("admin");
+		connectionFactory.setPassword("admin");
 		connectionFactory.setVirtualHost("/");
 		return connectionFactory;
 	}
 	
+	/**
+	 * 	初始化rabbitAdmin对象
+	 */
 	@Bean
 	public RabbitAdmin rabbitAdmin(ConnectionFactory connectionFactory) {
 		RabbitAdmin rabbitAdmin = new RabbitAdmin(connectionFactory);
@@ -47,7 +54,7 @@ public class RabbitMQConfig {
 	}
 	
     /**  
-     * 针对消费者配置  
+     *	 针对消费者配置  
      * 1. 设置交换机类型  
      * 2. 将队列绑定到交换机  
         FanoutExchange: 将消息分发到所有的绑定队列，无routingkey的概念  
@@ -112,6 +119,12 @@ public class RabbitMQConfig {
     	return rabbitTemplate;
     }
     
+    
+    /**
+     * 	实例化SimpleMessageListenerContainer消息监听容器
+     * @param connectionFactory
+     * @return
+     */
     @Bean
     public SimpleMessageListenerContainer messageContainer(ConnectionFactory connectionFactory) {
     	
@@ -207,7 +220,7 @@ public class RabbitMQConfig {
         */
         
         //1.4 ext convert
-        
+        // 消息适配器
         MessageListenerAdapter adapter = new MessageListenerAdapter(new MessageDelegate());
         adapter.setDefaultListenerMethod("consumeMessage");
         
