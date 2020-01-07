@@ -40,7 +40,6 @@ public class RabbitReceiver {
 	
 	
 	/**
-	 * 
 	 * 	spring.rabbitmq.listener.order.queue.name=queue-2
 		spring.rabbitmq.listener.order.queue.durable=true
 		spring.rabbitmq.listener.order.exchange.name=exchange-1
