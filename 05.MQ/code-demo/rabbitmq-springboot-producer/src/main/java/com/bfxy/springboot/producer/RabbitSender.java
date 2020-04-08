@@ -33,7 +33,7 @@ public class RabbitSender {
 		}
 	};
 	
-	//回调函数: return返回
+	//回调函数: return返回,监听无用不可达的消息
 	final ReturnCallback returnCallback = new RabbitTemplate.ReturnCallback() {
 		@Override
 		public void returnedMessage(org.springframework.amqp.core.Message message, int replyCode, String replyText,
@@ -51,6 +51,7 @@ public class RabbitSender {
 		rabbitTemplate.setReturnCallback(returnCallback);
 		//id + 时间戳 全局唯一 
 		CorrelationData correlationData = new CorrelationData("1234567890");
+		// 发送消息
 		rabbitTemplate.convertAndSend("exchange-1", "springboot.abc", msg, correlationData);
 	}
 	
