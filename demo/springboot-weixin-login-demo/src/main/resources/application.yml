@@ -1,0 +1,4 @@
+spring:
+  freemarker:
+    suffix: .html
+    charset: UTF-8
