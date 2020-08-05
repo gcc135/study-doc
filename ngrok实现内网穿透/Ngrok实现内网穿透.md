@@ -12,11 +12,12 @@ ngrok有免费的隧道ID(ngrok给生成固定的域名)也有收费的(可以�
 1. 下载windows版本的ngrok,解压到任意的目录下
 ```
 
-![1590464509514](.\typro-img\1590464509514.png)
+###### ![1590464509514](.\typro-img\1590464509514.png)
 
 ```
 2. 进入到cmd界面,并进入到存有ngrok.exe文件的目录中执行以下命令
-ngrok authtoken 1cQYg10gtnxRVnauDNIU33GiHEd_qGyvMRYggxqZAQsqcvKi(免费的隧道ID,每个人的不同,登录进去之后就有了,这个是我的ID)
+ngrok authtoken 1cQYg10gtnxRVnauDNIU33GiHEd_qGyvMRYggxqZAQsqcvKi
+(免费的隧道ID,每个人的不同,登录进去之后就有了,这个是我的ID)
 ```
 
 ![1590464642570](.\typro-img\1590464642570.png)
